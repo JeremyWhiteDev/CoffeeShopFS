@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IBeanVarietyRepository, BeanVarietyRepository>();
+builder.Services.AddTransient<ICoffeeRepository, CoffeeRepository>();
 
 var app = builder.Build();
 

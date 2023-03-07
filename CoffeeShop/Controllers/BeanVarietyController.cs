@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.Models;
 using CoffeeShop.Repositories;
+using Microsoft.Data.SqlClient;
 
 namespace CoffeeShop.Controllers
 {
@@ -58,8 +59,28 @@ namespace CoffeeShop.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _beanVarietyRepository.Delete(id);
+            //try/catch
+            var foundBeanVariety = _beanVarietyRepository.Get(id);
+
+            if (foundBeanVariety == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                _beanVarietyRepository.Delete(id);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
             return NoContent();
         }
+          
     }
 }
