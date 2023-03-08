@@ -65,4 +65,7 @@
     <Build Include="dbo\Tables\BeanVariety.sql" />
     <Build Include="dbo\Tables\Coffee.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="CoffeeSeedData.sql" />
+  </ItemGroup>
 </Project>
