@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import CoffeeList from './components/CoffeeList';
+import CoffeeShop from './CoffeeShop';
+
 
 function App() {
     return (
@@ -8,7 +9,7 @@ function App() {
            
             <h1 className="text-8xl pl-4 dark:text-white max-w-xl md:max-w-screen-xl mb-6">Coffee Shop</h1>
         <div className="p-4">
-            <CoffeeList />
+            <CoffeeShop />
             </div>
         </main>
   );
