@@ -73,11 +73,11 @@ namespace CoffeeShop.Controllers
             }
             catch (SqlException ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest("A SQL ERROR HAS OCCURRED: " + ex.Message);
             }
             catch (Exception ex)
             {
-                throw;
+                return BadRequest(ex.Message);
             }
             return NoContent();
         }
